@@ -1,5 +1,7 @@
-#HW3
+# HW3
 
-##Made tablet view for iPad
+## Made tablet view for iPad
 
-##Gulp + Css done
+## Gulp + Sass done
+
+```gulp style()``` to run sass builder 
