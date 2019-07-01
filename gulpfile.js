@@ -3,8 +3,8 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 
 function copyFiles() {
-  return gulp.src('./src/**/*')
-    .pipe(gulp.dest('./dir'));
+  return gulp.src('./src/**/*.css')
+    .pipe(gulp.dest('./dist'));
 }
 
 function style() {
@@ -13,8 +13,15 @@ function style() {
     .pipe(autoprefixer({
       cascade: false
     }))
-    .pipe(gulp.dest('./dir/style/css'));
+    .pipe(gulp.dest('./dist/style/css'));
+}
+
+async function build() {
+  await copyFiles();
+  await style();
 }
 
 exports.copyFiles = copyFiles;
 exports.style = style;
+exports.build = build;
+exports.default = build;
