@@ -1,10 +1,11 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean-css');
 
 function copyFiles() {
   return gulp.src('./src/**/*.css')
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./'));
 }
 
 function style() {
@@ -13,7 +14,8 @@ function style() {
     .pipe(autoprefixer({
       cascade: false
     }))
-    .pipe(gulp.dest('./dist/style/css'));
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('./style/css'));
 }
 
 async function build() {
